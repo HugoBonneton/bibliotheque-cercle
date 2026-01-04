@@ -1,0 +1,33 @@
+Utilisateur(id_user, nom, prenom, mail, mot_de_passe, adresse)
+  id_user : Clé primaire de la table 'Utilisateur'
+
+Cercle(id_cercle, nom_cercle, description)
+  id_cercle : Clé primaire de la table 'Cercle'
+
+Ouvrage(isbn13, titre, auteur, editeur)
+
+  isbn13 : Clé primaire de la table 'Ouvrage'
+
+Exemplaire(id_exemplaire, etat, localisation, est_pretable, est_disponible, #id_user, #isbn13)
+
+  id_exemplaire : Clé primaire de la table 'Exemplaire'
+  #id_user : Clé étrangère de la table 'Exemplaire' faisant référence à la table 'Utilisateur' via id_user
+  #isbn13 : Clé étrangère de la table 'Exemplaire' faisant référence à la table 'Ouvrage' via isbn13
+
+Membre(#id_user, #id_cercle, rôle, statut)
+
+  id_user, id_cercle : Clé primaire de la table 'Membre'
+  #id_user : Clé étrangère de la table 'Membre' faisant référence à la table 'Utilisateur' via id_user
+  #id_cercle : Clé étrangère de la table 'Membre' faisant référence à la table 'Cercle' via id_cercle
+
+Emprunt(#id_user, #id_exemplaire, date_demande, date_debut, date_fin, statut_emprunt)
+
+  id_user, id_exemplaire, date_demande : Clé primaire de la table 'Emprunt'
+  #id_user : Clé étrangère de la table 'Emprunt' faisant référence à la table 'Utilisateur' via id_user
+  #id_exemplaire : Clé étrangère de la table 'Emprunt' faisant référence à la table 'Exemplaire' via id_exemplaire
+
+Avis(#id_user, #isbn13, note, commentaire, date_avis)
+
+  id_user, isbn13 : Clé primaire de la table 'Avis'
+  #id_user : Clé étrangère de la table 'Avis' faisant référence à la table 'Utilisateur' via id_user
+  #isbn13 : Clé étrangère de la table 'Avis' faisant référence à la table 'Ouvrage' via isbn13
