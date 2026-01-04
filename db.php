@@ -1,6 +1,6 @@
 <?php
 // db.php - Connexion Oracle (Pour le serveur école)
-$host = 'serveur-etudiant.univ.fr'; 
+$host = 'http://100.95.181.113/index.php'; 
 $port = '1521';
 $sid  = 'XE';
 $user = 'TON_LOGIN'; 
